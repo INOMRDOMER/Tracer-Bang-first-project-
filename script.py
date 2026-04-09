@@ -1,4 +1,4 @@
-import pygame
+import pygame # in pycharm --> terminal --> pip install pygame
 import random
 import time
 
