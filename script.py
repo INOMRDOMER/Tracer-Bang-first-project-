@@ -2,6 +2,8 @@ import pygame
 import random
 import time
 
+# Код не использует текстуры [ создано вручную ]
+
 pygame.init()
 
 run = True
@@ -12,21 +14,21 @@ clock = pygame.time.Clock()
 fon = pygame.font.SysFont("Arial", 20)
 
 
-speed = 8
-sleep = False
-ySpawn = 0
-xSpawn = 0
-x = 350
-metres = 0
-recordes = 0
-timeSPAWN = 0
-spawn = False
+speed = 8 # скорость монстра
+sleep = False # включен ли Слоумо
+ySpawn = 0 #- высота спавна монстра
+xSpawn = 0 #- ширина спавна монстра
+x = 350 #- где находиться машина ( ширина)
+metres = 0 #сколько вы проехали метров
+recordes = 0 # рекорд ( в метрах )
+timeSPAWN = 0 # начало спавна
+spawn = False # спавнить?
 monster = pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(xSpawn, ySpawn, 60, 60))
 help1 = fon.render(f"Слоумо: SPACE", True, (0, 0, 0))
 
 
 while run:
-    clock.tick(60)
+    clock.tick(60) # работает в 60 FPS    
     timeSPAWN += 1
     metres += 0.1
     metresF = int(metres)
@@ -83,13 +85,13 @@ while run:
                 x += 50
             if event.key == pygame.K_a:
                 x -= 55
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE: 
              if sleep:
                 sleep = False
              else:
                 sleep = True
 
     if sleep:
-        time.sleep(0.1)
+        time.sleep(0.1) # время слоумо можно настраивать [ 0.1 - 0.5 самые стабильные ]
 
     pygame.display.flip()
